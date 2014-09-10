@@ -64,12 +64,12 @@ angular.module('angucomplete', [] )
                         var titleCode = [];
 
                         for (var t = 0; t < titleFields.length; t++) {
-                            titleCode.push(responseData[i][titleFields[t]]);
+                            titleCode.push(objectPath.get(responseData[i], titleFields[t]));
                         }
 
                         var description = "";
                         if ($scope.descriptionField) {
-                            description = responseData[i][$scope.descriptionField];
+                            description = objectPath.get(responseData[i], $scope.descriptionField);
                         }
 
                         var imageUri = "";
@@ -79,7 +79,7 @@ angular.module('angucomplete', [] )
 
                         var image = "";
                         if ($scope.imageField) {
-                            image = imageUri + responseData[i][$scope.imageField];
+                            image = imageUri + objectPath.get(responseData[i], $scope.imageField);
                         }
 
                         var text = titleCode.join(' ');
@@ -118,7 +118,7 @@ angular.module('angucomplete', [] )
                             var match = false;
 
                             for (var s = 0; s < searchFields.length; s++) {
-                                match = match || (typeof $scope.localData[i][searchFields[s]] === 'string' && typeof str === 'string' && $scope.localData[i][searchFields[s]].toLowerCase().indexOf(str.toLowerCase()) >= 0);
+                                match = match || (typeof objectPath.get($scope.localData[i], searchFields[s]) === 'string' && typeof str === 'string' && objectPath.get($scope.localData[i], searchFields[s]).toLowerCase().indexOf(str.toLowerCase()) >= 0);
                             }
 
                             if (match) {

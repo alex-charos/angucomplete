@@ -18,7 +18,7 @@ app.controller('MainController', ['$scope', '$http',
         ];
 
         $scope.countries = [
-            {name: 'Afghanistan', code: 'AF'},
+            {name: 'Afghanistan', code: 'AF', obj:{name:"asBo"}},
             {name: 'Aland Islands', code: 'AX'},
             {name: 'Albania', code: 'AL'},
             {name: 'Algeria', code: 'DZ'},

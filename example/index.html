@@ -17,7 +17,7 @@
             <div class="large-padded-row">
                 <h3>Example 1 - Countries of the World</h3>
                 <div class="padded-row">
-                    <angucomplete id="ex1" placeholder="Search countries" pause="100" onselect="countryCallback(data)" localdata="countries" searchfields="name" titlefield="name" minlength="1" inputclass="form-control form-control-small" matchclass="highlight" />
+                    <angucomplete id="ex1" placeholder="Search countries" pause="100" onselect="countryCallback(data)" localdata="countries" searchfields="obj.name" titlefield="obj.name" minlength="1" inputclass="form-control form-control-small" matchclass="highlight" />
                 </div>
                 <div class="" ng-show="selectedCountry">
                     You selected <span class="bold-span">{{selectedCountry.originalObject.name}}</span> which has a country code of <span class="bold-span">{{selectedCountry.originalObject.code}}</span>
@@ -55,11 +55,13 @@
             </div>
 
 
+            <script src="../bower_components/object-path/index.js"></script>
             <script src="js/angular.min.js"></script>
             <script src="js/angular-touch.min.js"></script>
             <script src="js/app/app.js"></script>
             <script src="js/app/controllers/main-controller.js"></script>
             <script src="js/app/directives/angucomplete.js"></script>
+
         </div>
     </body>
 </html>
