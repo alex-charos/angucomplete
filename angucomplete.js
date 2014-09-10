@@ -190,8 +190,8 @@ angular.module('angucomplete', [] )
                     result.title = result.title.toString().replace(/(<([^>]+)>)/ig, '');
                 }
                 $scope.searchStr = $scope.lastSearchTerm = result.title;
-                $scope.selectedObject = result;
-                $scope.onSelect({data:result});
+                $scope.selectedObject && ($scope.selectedObject = result);
+                $scope.onSelect && $scope.onSelect({data:result});
                 $scope.showDropdown = false;
                 $scope.results = [];
                 //$scope.$apply();
@@ -237,7 +237,7 @@ angular.module('angucomplete', [] )
                     $scope.showDropdown = false;
                     $scope.$apply();
                 } else if (event.which == 8) {
-                    $scope.selectedObject = null;
+                    $scope.selectedObject && ($scope.selectedObject = null);
                     $scope.$apply();
                 }
             });
