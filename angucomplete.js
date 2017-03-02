@@ -91,18 +91,13 @@ angular.module('angucomplete', [] )
                             text = $sce.trustAsHtml(text.replace(re, '<span class="'+ $scope.matchClass +'">'+ strPart +'</span>'));
                         }
 
-                        var resultRow;
-                        if ($scope.scopeIsObject) {
-                            resultRow = {
+                        var resultRow  = {
                                 title: text,
                                 description: description,
                                 image: image,
                                 originalObject: responseData[i]
                             };
-                        } else {
-                            resultRow = text;
-                        }
-
+                        
                         $scope.results[$scope.results.length] = resultRow;
                     }
 
@@ -196,7 +191,14 @@ angular.module('angucomplete', [] )
                     result.title = result.title.toString().replace(/(<([^>]+)>)/ig, '');
                 }
                 $scope.searchStr = $scope.lastSearchTerm = result.title;
-                $scope.selectedObject && ($scope.selectedObject = result);
+
+                if ($scope.scopeIsObject && $scope.scopeIsObject === "true") {
+                     $scope.selectedObject && ($scope.selectedObject = result);             
+                } else {
+                     $scope.selectedObject && ($scope.selectedObject = result.title);             
+                }
+
+               
                 $scope.onSelect && $scope.onSelect({data:result});
                 $scope.showDropdown = false;
                 $scope.results = [];
