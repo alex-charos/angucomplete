@@ -168,7 +168,7 @@ angular.module('angucomplete', [] )
                         $scope.lastSearchTerm = null
                     } else if (isNewSearchNeeded($scope.searchStr, $scope.lastSearchTerm)) {
                         $scope.lastSearchTerm = $scope.searchStr;
-                        if ($scope.updateScope && $scope.updateScope ==="true" && $scope.scopeIsObject && scope.scopeIsObject ==="false") {
+                        if ($scope.updateScope && $scope.updateScope ==="true" && $scope.scopeIsObject && $scope.scopeIsObject ==="false") {
                             $scope.selectedObject = $scope.searchStr;
                         }
                         $scope.showDropdown = true;
