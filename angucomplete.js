@@ -249,7 +249,7 @@ angular.module('angucomplete', [] )
                     $scope.showDropdown = false;
                     $scope.$apply();
                 } else if (event.which == 8) {
-                    $scope.selectedObject && ($scope.selectedObject = null);
+                    //$scope.selectedObject && ($scope.selectedObject = null);
                     $scope.$apply();
                 }
             });
